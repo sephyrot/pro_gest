@@ -1,0 +1,11 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+	<!--Le podemos pasar @user que ya sabe que tiene que ir al partial _user y que es por cada elemento de @users!! -->
+	<%= render @users %>
+</ul>
+
+<%= will_paginate %>
