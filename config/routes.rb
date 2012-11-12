@@ -2,6 +2,8 @@ SampleApp::Application.routes.draw do
   
   resources :users #para que obtenga todas las paginas de usuarios
   resources :sessions, only: [:new, :create, :destroy]
+  resources :contratos
+  resources :sol_servicios
 
   root to: 'static_pages#home'
 
