@@ -17,4 +17,6 @@
 
 class SolServicio < ActiveRecord::Base
   attr_accessible :asunto, :comentarios, :contrato_id, :departamento_id, :numero, :precio_noiva, :proyecto_id, :tipo
+  belongs_to :contrato
+  
 end

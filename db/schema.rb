@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121111164742) do
+ActiveRecord::Schema.define(:version => 20121113091756) do
 
   create_table "contratos", :force => true do |t|
     t.string   "cod_contrato"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(:version => 20121111164742) do
     t.datetime "fecha_ini"
     t.datetime "fecha_fin"
     t.datetime "fecha_amp"
-    t.integer  "presupuesto_noiva"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.decimal  "presupuesto_noiva", :precision => 8, :scale => 2
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   add_index "contratos", ["cod_contrato", "proyecto_id"], :name => "index_contratos_on_cod_contrato_and_proyecto_id"
