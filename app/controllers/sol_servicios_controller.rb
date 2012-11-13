@@ -4,6 +4,10 @@ class SolServiciosController < ApplicationController
 		@solserv = SolServicio.all
 		@new_solserv = SolServicio.new
 	end
+	
+	def new
+		
+	end
 
 	def create		
 	end

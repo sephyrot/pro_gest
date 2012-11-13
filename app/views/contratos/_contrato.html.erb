@@ -1,3 +1,6 @@
 <li>
-    <%= contrato.cod_contrato %> | <%=number_to_currency(contrato.presupuesto_noiva, unit: "€") %>
+    <%= contrato.cod_contrato %> | <%=number_to_currency(contrato.presupuesto_noiva, unit: "€", :separator => ",", :delimiter => ".") %> 
+    | <%= link_to "Ver", contrato, :class => "btn btn-primary"   %>
+    | <%= link_to "Borrar", contrato, method: :delete, :class => "btn btn-danger", data: { confirm: "Esta seguro?" }   %>
+    | <span class="badge badge-info">0</span>
 </li>

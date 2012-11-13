@@ -168,6 +168,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .field_with_errors {
+  display:inline-block;
   @extend .control-group;
   @extend .error;
  }

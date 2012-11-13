@@ -18,6 +18,7 @@
 class Contrato < ActiveRecord::Base
   attr_accessible :cod_contrato, :empresa, :fecha_amp, :fecha_fin, :fecha_ini, :presupuesto_noiva, :tecnologia, :proyecto_id
   has_many :sol_servicios, dependent: :destroy
+  before_save {}
 
   validates :cod_contrato,  presence: true
   validates :presupuesto_noiva, :numericality => {:greater_than => 0}

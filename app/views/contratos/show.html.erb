@@ -1,0 +1,5 @@
+<h1>Contrato: <%= @contrato.cod_contrato%></h1>
+<ul class="users">
+	<%= render @sol_servicios %>
+</ul>
+<%= link_to "Nueva Solicitud de Serv.", new_sol_servicio_path, :class => "btn" %>
