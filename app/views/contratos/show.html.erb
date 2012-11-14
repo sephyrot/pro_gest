@@ -23,6 +23,24 @@
       </div>
 
       <div class="control-group">
+      <%= f.label "Tipo", :class => "control-label"  %>
+        <div class="controls">
+          <div class="input-append">
+            <%= f.select :tipo, %w[incidencia funcionalidad], {},{:class => "input-normal"} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+      <%= f.label "Departamento", :class => "control-label"  %>
+        <div class="controls">
+          <div class="input-append">
+            <%= f.select :departamento_id, Departamento.all.map{ |c| [c.codigo, "#{c.id}"] }, {},{:class => "input-normal"} %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
       <%= f.label "Precio sin IVA", :class => "control-label"  %>
         <div class="controls">
           <div class="input-append">

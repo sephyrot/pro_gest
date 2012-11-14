@@ -6,10 +6,13 @@
     	<%= contrato.empresa %>
     </div>
     <div class="span1">
-    	<%= Proyecto.find(contrato.proyecto_id).nombre %>
+    	<%= Proyecto.find_by_id(contrato.proyecto_id).nil? ? "NO" : Proyecto.find(contrato.proyecto_id).nombre %>
     </div>
     <div class="span1">
     	<%=number_to_currency(contrato.presupuesto_noiva, unit: "€", :separator => ",", :delimiter => ".") %> 
+    </div>
+    <div class="span1">
+        <%=number_to_currency(contrato.presupuesto_noiva*1.21, unit: "€", :separator => ",", :delimiter => ".") %> 
     </div>
     <div class="span1">
     	<%= contrato.fecha_ini.strftime('%d-%m-%y') %>

@@ -5,6 +5,7 @@ SampleApp::Application.routes.draw do
   resources :contratos
   resources :sol_servicios
   resources :proyectos
+  resources :departamentos
 
   root to: 'static_pages#home'
 

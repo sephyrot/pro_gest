@@ -1,0 +1,38 @@
+<% provide(:title, 'Departamentos') %>
+<h1>Departamentos</h1>
+
+<ul class="users">
+<%= render @departamentos %>
+</ul>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@departamento, :html => { :class => "form-horizontal"} ) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="control-group">
+      <%= f.label :nombre, :class => "control-label"  %>
+        <div class="controls">
+            <div class="input-append">
+                <%= f.text_field :nombre, :class => "input-mini", :placeholder => "Nombre" %>
+            </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+      <%= f.label "Codigo", :class => "control-label"  %>
+        <div class="controls">
+          <div class="input-append">
+            <%= f.text_field :codigo, :class => "input-mini", :placeholder => "Código" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Crea Departamento", class: "btn btn-small btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
