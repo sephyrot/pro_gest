@@ -26,10 +26,12 @@
         </div>
       </div>
 
+
+
       <div class="control-group">
       <%= f.label :proyecto_id, :class => "control-label"  %>
         <div class="controls">
-          <%= f.text_field :proyecto_id, :class => "input-small" %>
+           <%= f.select :proyecto_id, @proyectos.map{ |c| [c.nombre, "#{c.id}"] }, {},{:class => "input-large"} %>
         </div>
       </div>
 

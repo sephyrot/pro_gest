@@ -1,6 +1,32 @@
-<li>
-    <%= contrato.cod_contrato %> | <%=number_to_currency(contrato.presupuesto_noiva, unit: "€", :separator => ",", :delimiter => ".") %> 
-    | <%= link_to "Ver", contrato, :class => "btn btn-primary"   %>
-    | <%= link_to "Borrar", contrato, method: :delete, :class => "btn btn-danger", data: { confirm: "Esta seguro?" }   %>
-    | <span class="badge badge-info">0</span>
-</li>
+<div class="row rowcon">
+	<div class="span1">
+    	<%= contrato.cod_contrato %>
+	</div>
+	<div class="span1">
+    	<%= contrato.empresa %>
+    </div>
+    <div class="span1">
+    	<%= Proyecto.find(contrato.proyecto_id).nombre %>
+    </div>
+    <div class="span1">
+    	<%=number_to_currency(contrato.presupuesto_noiva, unit: "€", :separator => ",", :delimiter => ".") %> 
+    </div>
+    <div class="span1">
+    	<%= contrato.fecha_ini.strftime('%d-%m-%y') %>
+    </div>
+    <div class="span1">
+    	<%= contrato.fecha_fin.nil? ? "NO" : contrato.fecha_fin.strftime('%d-%m-%y')%>
+    </div>
+    <div class="span1">
+ 	  	<%= contrato.fecha_amp.nil? ? "NO" : contrato.fecha_amp.strftime('%d-%m-%y')%>
+    </div>
+    <div class="span1 spanboton">
+    	<%= link_to "Ver", contrato, :class => "btn btn-primary"   %>
+    </div>
+    <div class="span1 spanboton">
+    	<%= link_to "Borrar", contrato, method: :delete, :class => "btn btn-danger", data: { confirm: "Esta seguro?" }   %>
+    </div>
+    <div class="span1">
+    	<span class="badge badge-info"><%=contrato.sol_servicios.count%></span>
+	</div>
+</div>

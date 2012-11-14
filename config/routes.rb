@@ -4,6 +4,7 @@ SampleApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :contratos
   resources :sol_servicios
+  resources :proyectos
 
   root to: 'static_pages#home'
 

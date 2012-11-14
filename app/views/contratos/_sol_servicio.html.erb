@@ -1,1 +1,6 @@
-<h2>hola</h2>
+<li>
+    <%= sol_servicio.numero %> | <%=number_to_currency(sol_servicio.precio_noiva, unit: "€", :separator => ",", :delimiter => ".") %> 
+    
+    | <%= link_to "Borrar", sol_ser, method: :delete, :class => "btn btn-danger", data: { confirm: "Esta seguro?" }   %>
+    | <span class="badge badge-info">0</span>
+</li>

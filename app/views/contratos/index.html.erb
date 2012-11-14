@@ -1,9 +1,40 @@
 <% provide(:title, 'Contratos') %>
 <h1>Contratos</h1>
 
-<ul class="users">
+<div class="row rowcon">
+	<div class="span1">
+    	Codigo
+	</div>
+	<div class="span1">
+    	Empresa
+    </div>
+    <div class="span1">
+    	Proyecto
+    </div>
+    <div class="span1">
+    	Presupuesto Sin IVA
+    </div>
+    <div class="span1">
+    	Fecha Inicio
+    </div>
+    <div class="span1">
+    	Fecha Fin
+    </div>
+    <div class="span1">
+ 	  	Fecha Ampliacion
+    </div>
+    <div class="span1">
+    	-
+    </div>
+    <div class="span1">
+    	-
+    </div>
+    <div class="span1">
+    	Solicitudes
+	</div>
+</div>
 	<%= render @contratos %>
-</ul>
+
 
 <%= link_to "Crear Contratos", new_contrato_path, :class => "btn" %>
 

@@ -1,5 +1,42 @@
-<h1>Contrato: <%= @contrato.cod_contrato%></h1>
+<h1>Contrato: <%= @contrato.cod_contrato%> Proyecto: <%= @contrato.proyecto_id%></h1>
 <ul class="users">
 	<%= render @sol_servicios %>
 </ul>
-<%= link_to "Nueva Solicitud de Serv.", new_sol_servicio_path, :class => "btn" %>
+<div class="row">
+	<h3>Gastado <%=  number_to_currency(@suma_gastado, unit: "€", :separator => ",", :delimiter => ".") %> de 
+		<%= number_to_currency(@contrato.presupuesto_noiva, unit: "€", :separator => ",", :delimiter => ".") %></h3>
+		
+		<div class="progress progress-info progress-striped">
+	  		<div class="bar" style="width: <%= @porcentaje %>%"></div>
+		</div>
+</div>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@sol_servicio, :html => { :class => "form-horizontal"} ) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= hidden_field(:sol_servicio,:contrato_id, :value => params[:id] ) %>
+      <div class="control-group">
+      <%= f.label :numero, :class => "control-label"  %>
+        <div class="controls">
+          <%= f.text_field :numero, :class => "input-mini", :placeholder => "" %>
+        </div>
+      </div>
+
+      <div class="control-group">
+      <%= f.label "Precio sin IVA", :class => "control-label"  %>
+        <div class="controls">
+          <div class="input-append">
+            <%= f.text_field :precio_noiva,:id => "appendedInput", :class => "span2" %>
+            <span class="add-on">€</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Crea Solicitud", class: "btn btn-large btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

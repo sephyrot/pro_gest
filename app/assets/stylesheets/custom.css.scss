@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 /* mixins, variables, etc. */
 
@@ -62,6 +63,20 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+/*media RFH*/
+@media (max-width: 480px) {
+    .hero-unit h1 { font-size: 40px; }
+}
+
+/*RFH cambiando row*/
+.rowcon{
+  padding-bottom: 10px;
+}
+.spanboton{
+  margin-left: 5px;
+  width: auto;
 }
 
 

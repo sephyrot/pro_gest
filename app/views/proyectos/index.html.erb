@@ -1,0 +1,8 @@
+<% provide(:title, 'Proyectos') %>
+<h1>Proyectos</h1>
+
+<ul class="users">
+	<%= render @proyectos %>
+</ul>
+
+<%= link_to "Crear Proyecto", new_proyecto_path, :class => "btn" %>
