@@ -1,58 +1,17 @@
-<h1>Contrato: <%= @contrato.cod_contrato%></h1>
-
-
-<div class="row rowhead rowcon">
-    <div class="span1">
-      <p>Numero</p>
-    </div>
-    <div class="span1">
-      <p>Precio sin iva</p>
-    </div>
-    <div class="span1">
-      <p>Precio con iva</p>
-    </div>
-    <div class="span1">
-      <p>Tipo</p>
-    </div>
-    <div class="span1">
-      <p>Asunto</p>
-    </div>
-    <div class="span1">
-      <p>Fecha de Entrega</p>
-    </div>
-    <div class="span1">
-      &nbsp;
-    </div>
-    <div class="span1">
-      <p>Comentarios</p>
-    </div>
-</div>
-<%= render @sol_servicios %>
-
-
-<br/>
-<div class="row">
-	<h3>Gastado <%=  number_to_currency(@suma_gastado, unit: "€", :separator => ",", :delimiter => ".") %> de 
-		<%= number_to_currency(@contrato.presupuesto_noiva, unit: "€", :separator => ",", :delimiter => ".") %></h3>
-</div>
-<br/>
-<div class="row">
-  <div class="progress <%=@color_barra%> progress-striped">
-      <div class="bar" style="width: <%= @porcentaje %>%"></div>
-  </div>
-</div>  
+<% provide(:title, "Editar Solicitud") %> 
+<h1>Actualiza la solicitud</h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@sol_servicio, :html => { :class => "form-horizontal"} ) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-      <%= hidden_field(:sol_servicio,:contrato_id, :value => params[:id] ) %>
+      
       
       <div class="control-group">
       <%= f.label :numero, :class => "control-label"  %>
         <div class="controls">
           <%= f.text_field :numero, :readonly => "true" ,:class => "input-mini" , 
-          :value => @nuevass.to_s %>
+          :value => @sol_servicio.numero %>
         </div>
       </div>
 
@@ -82,7 +41,7 @@
       </div>
 
       <div class="control-group">
-      <%= f.label "Fecha de entrega", :class => "control-label"  %>
+      <%= f.label "Fecha de entraga", :class => "control-label"  %>
         <div class="controls">      
           <%= f.text_field :fecha_entrega, :class => "input-small",:id => "fecha1", :placeholder => "Entrega" %>
         </div>
@@ -100,7 +59,7 @@
 
       <div class="control-group">
         <div class="controls">
-          <%= f.submit "Crea Solicitud", class: "btn btn-large btn-primary" %>
+          <%= f.submit "Actualiza Solicitud", class: "btn btn-large btn-primary" %>
         </div>
       </div>
     <% end %>

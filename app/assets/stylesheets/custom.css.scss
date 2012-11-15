@@ -74,9 +74,54 @@ p {
 .rowcon{
   padding-bottom: 10px;
 }
+.rowsub{
+  /*border-bottom: solid 2px;*/
+  margin-bottom: 10px;
+  padding-top: 10px;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.rowsubmes{
+  background-color: #A9F5A9;
+}
+.rowsubsem{
+  background-color: #F3F781;
+}
+.rowsubdia{
+  /*background-color: #FF0066;*/
+  background-color: #FD919B;
+}
+
+.rowhead{
+   background-color: #c7e9f3;
+   
+   -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 0px;
+}
+
 .spanboton{
   margin-left: 5px;
   width: auto;
+}
+
+
+/*Select adaptado*/
+
+select.custom{/*poniendole un class podemos separarlo de la conf normal*/
+padding: 0px;
+outline:0;
+width: auto;
+  &:focus { 
+
+      padding: 0px;
+      outline:0;
+      width: auto;
+    }
 }
 
 

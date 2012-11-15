@@ -10,7 +10,7 @@
 #  fecha_ini         :datetime
 #  fecha_fin         :datetime
 #  fecha_amp         :datetime
-#  presupuesto_noiva :integer
+#  presupuesto_noiva :decimal(8, 2)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #

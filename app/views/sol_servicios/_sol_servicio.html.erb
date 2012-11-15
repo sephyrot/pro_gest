@@ -1,6 +1,54 @@
-<li>
-    <%= sol_servicio.numero %> | <%=number_to_currency(sol_servicio.precio_noiva, unit: "€", :separator => ",", :delimiter => ".") %> 
+<% 
+if !sol_servicio.fecha_entrega.nil?
+    @verde = (sol_servicio.fecha_entrega > Date.today.months_since(1))
+    @amarillo = (Date.today.next_week(:friday).to_datetime < sol_servicio.fecha_entrega) && ( sol_servicio.fecha_entrega < Date.today.months_since(1)) 
+    @rojo = (Date.today.next_week(:friday).to_datetime > sol_servicio.fecha_entrega)  
+
+        if @verde
+            @clase = "rowsubmes"
+        else
+            if @amarillo
+                @clase = "rowsubsem"
+            else
+                if @rojo
+                    @clase = "rowsubdia"
+                end
+            end
+
+        end
+
+else
+    @clase = ""
+end
+
+%>
+<div class="row rowcon rowsub <%= @clase %>">
     
-    | <%= link_to "Borrar", sol_servicio, method: :delete, :class => "btn btn-danger", data: { confirm: "Esta seguro?" }   %>
-    | <span class="badge badge-info">0</span>
-</li>
+    <div class="span1">
+    	<p><%= sol_servicio.numero %> </p>
+    </div>
+    <div class="span1">
+    	<p><%=sol_servicio.precio_noiva.nil? ? "NO" : number_to_currency(sol_servicio.precio_noiva, unit: "€", :separator => ",", :delimiter => ".") %></p> 
+	</div>
+    <div class="span1">
+        <p><%=sol_servicio.precio_noiva.nil? ? "NO": number_to_currency(sol_servicio.precio_noiva*1.21, unit: "€", :separator => ",", :delimiter => ".") %></p> 
+    </div>
+	<div class="span1">
+    	<p><%= sol_servicio.tipo %> </p>
+    </div>
+    <div class="span1">
+    	<p><%= sol_servicio.asunto.blank? ? "Ninguno" : sol_servicio.asunto %> </p>
+    </div>
+    <div class="span1">
+    	<p><%= sol_servicio.fecha_entrega.nil? ? "NO" : sol_servicio.fecha_entrega.strftime('%d-%m-%y') %> </p>
+    </div>
+    <div class="span1 spanboton">
+        <p><%= link_to "Editar", edit_sol_servicio_path(sol_servicio), :class => "btn"%></p>
+    </div>
+    <div class="span1 spanboton">
+    	<p><%= link_to "Borrar", sol_servicio, method: :delete, :class => "btn btn-danger", data: { confirm: "Esta seguro?" }   %></p>
+    </div>
+    <div class="span1">
+    	<p><span class="badge badge-info">0</span></p>
+	</div>
+</div>
